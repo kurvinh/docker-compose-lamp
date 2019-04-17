@@ -2,32 +2,22 @@
 
 ![Landing Page](https://preview.ibb.co/gOTa0y/LAMP_STACK.png)
 
-This is a basic LAMP stack environment built using Docker Compose. It consists following:
+~~This is a basic LAMP stack environment built using Docker Compose. It consists following:~~
 
 * PHP
 * Apache
-* MySQL
-* phpMyAdmin
 
-As of now, we have 3 different branches for different PHP versions. Use appropriate branch as per your php version need:
-* [5.6.x](https://github.com/sprintcube/docker-compose-lamp/tree/5.6.x)
-* [7.1.x](https://github.com/sprintcube/docker-compose-lamp/tree/7.1.x)
-* [7.2.x](https://github.com/sprintcube/docker-compose-lamp/tree/7.2.x)
+Adapted from a LAMP stack, Apache and PHP7.2 only
 
-## Installation
+how to get your localhost IP for the docker install
+ifconfig en0 | awk '/inet/ {print $2}'
 
-Clone this repository on your local computer and checkout the appropriate branch e.g. 7.1.x. Run the `docker-compose up -d`.
+you will need to add your IP to the allowed IP ranges for your MySQL install
 
-```shell
-git clone https://github.com/sprintcube/docker-compose-lamp.git
-cd docker-compose-lamp/
-git fetch --all
-git checkout 7.1.x
-docker-compose up -d
-```
+CREATE USER 'root'@'172.21.3.207' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.21.3.207';
 
-Your LAMP stack is now ready!! You can access it via `http://localhost`.
-
-## Configuration and Usage
-
-Please read from appropriate version branch.
+To start container clone repo, cd into folder
+# run docker-compose up -d --build 
+# once complete run docker ps
+# to jump into container run docker exec -it <container_name> /bin/bash
