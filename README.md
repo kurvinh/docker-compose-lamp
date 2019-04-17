@@ -15,8 +15,8 @@ how to get your localhost IP for the docker install
 
 you will need to add your IP to the allowed IP ranges for your MySQL install
 
-#CREATE USER 'root'@'192.%' IDENTIFIED BY 'root';
-#GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.%';
+# CREATE USER 'root'@'192.%' IDENTIFIED BY 'root';
+# GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.%';
 
 To start container clone repo, cd into folder
 # run docker-compose up -d --build 
