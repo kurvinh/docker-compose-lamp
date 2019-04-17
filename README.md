@@ -19,7 +19,7 @@ you will need to add your IP to the allowed IP ranges for your MySQL install
 # GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.%';
 
 To start container clone repo, cd into folder
-# run docker-compose up -d --build 
+# run docker-compose up -d
 # once complete run docker ps
 # to jump into container run docker exec -it <container_name> /bin/bash
 # clone OLC into www on your machine, create host jump onto container create host and apache conf
