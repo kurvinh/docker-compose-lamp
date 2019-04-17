@@ -22,3 +22,4 @@ To start container clone repo, cd into folder
 # run docker-compose up -d --build 
 # once complete run docker ps
 # to jump into container run docker exec -it <container_name> /bin/bash
+# clone OLC into www on your machine, create host jump onto container create host and apache conf
