@@ -6,6 +6,7 @@
 
 * PHP
 * Apache
+# you will need to run MySQL on your local machine
 
 Adapted from a LAMP stack, Apache and PHP7.2 only
 
@@ -23,3 +24,7 @@ To start container clone repo, cd into folder
 # once complete run docker ps
 # to jump into container run docker exec -it <container_name> /bin/bash
 # clone OLC into www on your machine, create host jump onto container create host and apache conf
+
+runs in port 84, eg localhost:84
+can be changed in the docker compose file to run on whichever port you are interested in, the docker apache port is set to 80, so you can map any port you want to the docker instance
+
