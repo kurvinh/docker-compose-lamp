@@ -7,4 +7,4 @@
 * MySQL
 
 clone environment, cd into folder run bash script using command ./run-install.sh
-to create custom vhost run sudo ./build-vhost.sh {custom_host} and enter your root password 
+to create custom vhost run sudo ./build-vhost.sh {custom_host} {custom host folder_name} and enter your root password 
