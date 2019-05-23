@@ -9,4 +9,4 @@ brew install git
 brew doctor
 docker-compose up -d
 docker exec  7.2.1-webserver-moodle bash /var/docker-scripts/mysql.sh #mysql init
-cd www/ && git clone -b MOODLE_35_STABLE git@github.com:moodle/moodle.git base-moodle && cd ../
+cd www/ && git clone -b MOODLE_35_STABLE https://github.com/moodle/moodle.git base-moodle && cd ../ #use HTTPS for base install
