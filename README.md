@@ -27,3 +27,15 @@ docker exec -it 7.2.1-webserver-moodle bash /etc/init.d/mysql reload</br>
 crontab -e from terminal it won't work if you use a 3rd party terminal emulator like zsh
 install the below cron, and change the folder name for each project
 */1 * * * * docker exec -it 7.2.1-webserver-moodle sh -c "/usr/local/bin/php /var/www/html/base-moodle/admin/cli/cron.php"
+
+connecting to mysql instance from host
+
+#CREATE USER 'root'@'%' IDENTIFIED BY 'root';
+#GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
+cd /etc/mysql/mariadb.conf.d
+vim 50-server.cnf
+and then comment out the bind-address #bind-address       = 127.0.0.1
+the restart and try the command with your specific port
+if you cannot restart change the ip to 0.0.0.0 
+will try and add this to the image at some point 
