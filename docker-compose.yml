@@ -19,6 +19,7 @@ services:
   db:
     image: mysql:5.7
     restart: always
+    container_name: '5.7-mysql-dev'
     environment:
       MYSQL_DATABASE: 'db'
       # So you don't have to use root, but you can if you like
@@ -36,3 +37,11 @@ services:
       # Where our data will be persisted
     volumes:
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
+  Redis:
+    image: redis
+    restart: always
+    container_name: 'redis-dev'
+    ports:
+    - "6379:6379"
+    volumes:
+    - ${MYSQL_DATA_DIR-./data/redis}:/var/lib/redis
