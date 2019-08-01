@@ -49,3 +49,4 @@ RUN a2enmod rewrite headers
 # Install CRON 
 RUN apt install cron
 RUN export VISUAL=vim
+RUN service cron start
