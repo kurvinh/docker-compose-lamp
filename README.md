@@ -6,6 +6,8 @@
 * Apache
 * MySQL
 
+clone the repo, cd into the root folder, run docker-compose up -d <br>
+
 install docker-compose https://docs.docker.com/docker-for-mac/ <br>
 
 #apache2
