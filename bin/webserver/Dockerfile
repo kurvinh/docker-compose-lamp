@@ -15,6 +15,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Other PHP7 Extensions
 RUN apt-get -y install libsqlite3-dev libsqlite3-0 mysql-client
 RUN docker-php-ext-install pdo_mysql 
+RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo_sqlite
 RUN docker-php-ext-install curl
 RUN docker-php-ext-install tokenizer
@@ -47,7 +48,7 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN a2enmod rewrite headers
 
 # Install CRON 
-RUN apt install cron
+RUN apt-get install -y cron
 RUN export VISUAL=vim
 RUN service cron start
 RUN update-rc.d cron enable
