@@ -6,6 +6,8 @@
 * Apache
 * MySQL
 
+clone the repo, cd into the root folder, run docker-compose up -d <br>
+
 install docker-compose https://docs.docker.com/docker-for-mac/ <br>
 
 #apache2
@@ -20,6 +22,7 @@ install the below cron, and change the folder name for each project
 #*/1 * * * * /usr/local/bin/php /var/www/html/online-campus/admin/cli/cron.php > /tmp/cron_online-campus-local.log
 
 #connecting to mysql instance from host
-to get the docker IP from the externak docker run 
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 5.7-mysql-dev
+to get the docker IP from the external 
+run <br>
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 5.7-mysql-dev<br>
 that IP is the one you will use for the DB your moodle instance will connect to
