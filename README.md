@@ -6,36 +6,23 @@
 * Apache
 * MySQL
 
+clone the repo, cd into the root folder, run docker-compose up -d <br>
+
 install docker-compose https://docs.docker.com/docker-for-mac/ <br>
-
-clone environment, cd into folder run bash script using command ./run-install.sh<br>
-to create custom vhost run sudo ./build-vhost.sh {custom_host} {custom host folder_name} and enter your root password<br>
-
-run first vhost as './build-vhost.sh base.moodle.local base-moodle'
-and then 'run docker exec 7.2.1-webserver-moodle bash service apache2 reload'
-visit 'http://base.moodle.local' in your browser</br>
 
 #apache2
 docker exec  7.2.1-webserver-moodle bash service apache2 reload</br>
 
-#mysql
-docker exec -it 7.2.1-webserver-moodle bash /etc/init.d/mysql start</br>
-docker exec -it 7.2.1-webserver-moodle bash /etc/init.d/mysql stop</br>
-docker exec -it 7.2.1-webserver-moodle bash /etc/init.d/mysql reload</br>
+git clone moodle into the /www folder
 
 #moodle CRON
 crontab -e from terminal it won't work if you use a 3rd party terminal emulator like zsh
 install the below cron, and change the folder name for each project
-*/1 * * * * docker exec -it 7.2.1-webserver-moodle sh -c "/usr/local/bin/php /var/www/html/base-moodle/admin/cli/cron.php"
 
-connecting to mysql instance from host
+#*/1 * * * * /usr/local/bin/php /var/www/html/online-campus/admin/cli/cron.php > /tmp/cron_online-campus-local.log
 
-#CREATE USER 'root'@'%' IDENTIFIED BY 'root';
-#GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
-
-cd /etc/mysql/mariadb.conf.d
-vim 50-server.cnf
-and then comment out the bind-address #bind-address       = 127.0.0.1
-the restart and try the command with your specific port
-if you cannot restart change the ip to 0.0.0.0 
-will try and add this to the image at some point 
+#connecting to mysql instance from host
+to get the docker IP from the external 
+run <br>
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 5.7-mysql-dev<br>
+that IP is the one you will use for the DB your moodle instance will connect to
