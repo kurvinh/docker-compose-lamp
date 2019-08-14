@@ -4,7 +4,7 @@ services:
     image: php:7.2-apache
     build: 
       context: ./bin/webserver
-    container_name: '7.2.1-webserver-apache'
+    container_name: 'webserver-apache-dev'
     restart: 'always'
     ports:
       #- "${HOST_MACHINE_UNSECURE_HOST_PORT}:80"
@@ -19,7 +19,7 @@ services:
   db:
     image: mysql:5.7
     restart: always
-    container_name: '5.7-mysql-dev'
+    container_name: 'db-mysql-dev'
     networks:
       default:
         ipv4_address: 172.20.0.3
