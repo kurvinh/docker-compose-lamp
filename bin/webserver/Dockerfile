@@ -52,3 +52,21 @@ RUN apt-get install -y cron
 RUN export VISUAL=vim
 RUN service cron start
 RUN update-rc.d cron enable
+
+# for xdebug
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+RUN echo '\n' >> /usr/local/etc/php/php.ini
+RUN echo '[xdebug]' >> /usr/local/etc/php/php.ini
+RUN echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so"' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_log="/tmp/xdebug.log"' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_port=9001' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_host=10.254.254.254' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_connect_back=0' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_autostart=1' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.idekey=PHPSTORM-XDEBUG' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_handler = dbgp' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_mode = req' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.profiler_enable=0' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.profiler_enable_trigger=1' >> /usr/local/etc/php/php.ini
